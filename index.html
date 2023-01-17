@@ -1,36 +1,127 @@
 <link rel="apple-touch-icon" href="apple-touch-icon180.png" sizes="180x180">
 
-<script language="JavaScript" type="text/javascript">
-function nextPage(){
-pwd=document.form1.pass.value;
-location.href=pwd+"14159265358979.html";
+<title>ACS権限認証</title>
+<body style="background:#white">
+<font face="sans-serif"><div style="padding:30px 50px"><br><center><br><img src="https://acs-ed.github.io/cert/gst.jpg" width="50%"><br><br><br>
+<br><font style="font-size:55px"><b>暗証番号を入力して認証</b></font><br><br>
+<font style="font-size:32px">これより先の領域は、学会が指定する8桁の暗証番号が必要です。暗証番号を忘れた場合、直属の者に限り<a href="https://acs-ed.github.io/acs/暗証番号を忘れたときは.html" style="text-decoration:none; color: purple">こちら</a>から復元できる場合があります。<br><br>
+<font color="#555">次の番号が要求されています：</font>
+<div style="padding:8px"></div>
+<div style="background:#f4f4f4; padding:10px; border-radius:10px"><b>学会普通鍵（8桁）</b></div>
+</font><br><br>
+<input class="ib" type="button" value="1" onclick="add1()">
+<input class="ib" type="button" value="2" onclick="add2()"> 
+<input class="ib" type="button" value="3" onclick="add3()"> 
+<br>
+<input class="ib" type="button" value="4" onclick="add4()">
+<input class="ib" type="button" value="5" onclick="add5()"> 
+<input class="ib" type="button" value="6" onclick="add6()"> 
+<br>
+<input class="ib" type="button" value="7" onclick="add7()">
+<input class="ib" type="button" value="8" onclick="add8()"> 
+<input class="ib" type="button" value="9" onclick="add9()"> 
+<br>
+<input class="iba" type="button" value="消去" onclick="clearTextarea()">
+<input class="ib" type="button" value="0" onclick="add0()"> 
+<input class="iba" type="button" value="認証" onClick="nextPage();"> 
+<br>
+<br>
+
+
+<textarea  id="text" style="display:none;"></textarea><br><br>
+
+	
+
+
+
+
+<style>
+.ib{
+margin:30px;
+border:1px solid #444;
+font-size:85px;
+  height: 180px;
+  width: 180px;
+  position: relative;
+  display: inline-block;
+text-align: center;
+  padding: 0rem 0rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #212529;
+  border-radius: 40%;
+  background:white;
+  -webkit-appearance: none;
 }
-</script> 
-<head>
-<body>
-  <div style="padding: 0px 15px; background: #ffffff">
-<center>
-<br><br>
+.iba{
+margin:30px;
+border:1px solid #444;
+font-size:55px;
+  height: 180px;
+  width: 180px;
+  position: relative;
+  display: inline-block;
+text-align: center;
+  padding: 0rem 0rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #212529;
+  border-radius: 40%;
+  background:white;
+  -webkit-appearance: none;
+}
+</style>
+<script type="text/javascript">
+ function add1(){
+ document.getElementById('text').value+='1';}
+ function add2(){
+ document.getElementById('text').value+='2';}
+function add3(){
+ document.getElementById('text').value+='3';}
+function add4(){
+ document.getElementById('text').value+='4';} 
+function add5(){
+ document.getElementById('text').value+='5';}
+function add6(){
+ document.getElementById('text').value+='6';}
+function add7(){
+ document.getElementById('text').value+='7';}
+function add8(){
+ document.getElementById('text').value+='8';}
+function add9(){
+ document.getElementById('text').value+='9';}
+function add0(){
+ document.getElementById('text').value+='0';}
+
+function clearTextarea() {
+	var textareaForm = document.getElementById("text");
+  textareaForm.value = '';
+}
+function nextPage(){
+const s = document.getElementById("text");
+const v = s.value;
+location.href=v+"14159265358979.html";
+}
+ </script>
+
+<script>//inputで入力して値の表示
+function showMsg(event) {
+const s = document.getElementById("text");
+const value = s.value.replace(/\\/g,"<br>").replace(/\*/g,"<font size=\"3\">");
+showarea.innerHTML = value;
+}
+//inputのクリア
+document.getElementById('text').value="";
+//表示領域のクリア
+showarea.innerHTML = "";
+//'input' イベントが発生したとき showMsgを起動させる。
+//'input' を 'change'に変えると Enter押下で showMsgを起動させることができる。
+document.getElementById('text').addEventListener('input', showMsg);
+</script>
+
  
-  
-<br><br>
-<tr><td align="center" bgcolor="#ffffff">
-<form name="form1">
-
-<img src="6E9C82C7-9FA3-4A50-90EF-3E55D3C70963.jpeg" width="300" height="360">
-<br>
-<br>
-
-
-   <b><font style="font-size: 46pt;">権限認証画面</b></font><br><br>
-  <font face="sans-serif" style="font-size: 20pt;">これより先の領域は、学会が
-<br>指定した暗証番号が必要です</font><br><br>
-  <font size="5" face="sans-serif"></font> <font size="5">
-  <input type="password" name="pass" placeholder="暗証番号を入力" style="width: 200pt; height: 40pt; font-size: 16pt; "></font>
- <input type="button"  value="認証 " onClick="nextPage();" style="width: 70pt; height: 40pt; font:20pt; font-size: 16pt;">
-<br><br><br><br>
-<font color="#3265cb" face="sans-serif" style="font-size: 18pt;">
-<a href= "https://acs-ed.github.io/acs/暗証番号を忘れたときは.html" >暗証番号を忘れた</a>
-<br>代表者に連絡<br>非菊阿学者へ</font>
-<center>
-  </div>
+</body></html>
